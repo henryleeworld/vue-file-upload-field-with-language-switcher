@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta property="og:title" content="帶有語言設定檔案上傳欄位" />
+        <meta property="og:description" content="網頁應用程式中使用本地檔案，點選欲切換的語言，切換檔案上傳欄位的顯示預設內容。" />
+        <meta property="og:locale" content="zh_TW" />
+        <meta property="og:type" content="website" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="css/file-upload-field.css" />
+        <title>帶有語言設定檔案上傳欄位</title>
+    </head>
+    <body>
+        <header style="background: #7bd08d;" class="py-5">
+            <div class="container text-center">
+                <h1 style="color: #fff;">帶有語言設定檔案上傳欄位</h1>
+            </div>
+        </header>
+        <div id="app" class="container py-5">
+            <h3>{{statement}}</h3>
+            <div class="py-3 text-center">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" @click="i18n.locale = 'tw'" class="btn btn-outline-secondary btn-traditional-chinese">繁體</button>
+                    <button type="button" @click="i18n.locale = 'cn'" class="btn btn-outline-secondary btn-simplified-chinese">简体</button>
+                    <button type="button" @click="i18n.locale = 'en'" class="btn btn-outline-secondary btn-english">English</button>
+                    <button type="button" @click="i18n.locale = 'jp'" class="btn btn-outline-secondary btn-japanese">日本語</button>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6 mb-2">
+                    <div class="card">
+                        <div class="card-header">
+                            使用 Bootstrap 的 CSS 的方法
+                        </div>
+                        <div class="card-body">
+                            <div class="custom-file">
+                                <input type="file" class="form-control-file custom-file-input custom-file-input-lang css-file-input" id="custom-file-input" :lang="i18n.locale" @change="previewFiles"/>
+                                <label class="custom-file-label css-file-label" for="custom-file-input"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="card">
+                        <div class="card-header">使用 Vue.js + Vue-i18n 的方法</div>
+                        <div class="card-body">
+                            <div class="custom-file custom-file-lang">
+                                <input type="file" class="form-control-file custom-file-input js-file-input" id="custom-file-input" @change="previewFiles"/>
+                                <label class="custom-file-label js-file-label" :data-lang="$t('input.button')" for="custom-file-input">{{$t('input.message')}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js" integrity="sha512-BKbSR+cfyxLdMAsE0naLReFSLg8/pjbgfxHh/k/kUC82Hy7r6HtR5hLhobaln2gcTvzkyyehrdREdjpsQwy2Jw==" crossorigin="anonymous" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-i18n/8.21.0/vue-i18n.min.js" integrity="sha512-vep8l41HeK5ITWSmi3YR5EJ9iuCq9YQPYo1ah12oLf7LibLU0NqafPIn+w4iWrb8BwL4lgGB83Qp5/+sE1mTsQ==" crossorigin="anonymous" defer></script>
+        <script src="js/file-upload-field.js" defer></script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+@charset "UTF-8";
+.custom-file-input-lang:lang(en)~.custom-file-label::before {
+    content: "Upload File";
+}
+
+.custom-file-input-lang:lang(tw)~.custom-file-label::before {
+    content: "上傳檔案";
+}
+
+.custom-file-input-lang:lang(cn)~.custom-file-label::before {
+    content: "上传档案";
+}
+
+.custom-file-input-lang:lang(jp)~.custom-file-label::before {
+    content: "ファイルをアップロードする";
+}
+
+.custom-file-input-lang:lang(en)~.custom-file-label::after {
+    content: "Upload";
+}
+
+.custom-file-input-lang:lang(tw)~.custom-file-label::after {
+    content: "上傳";
+}
+
+.custom-file-input-lang:lang(cn)~.custom-file-label::after {
+    content: "上传";
+}
+
+.custom-file-input-lang:lang(jp)~.custom-file-label::after {
+    content: "アップロード";
+}
+
+.custom-file-lang .custom-file-label::after {
+    content: attr(data-lang) !important;
+}
